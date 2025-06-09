@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Community - Women in Games</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo.jpg" alt="Women in Gaming Logo" class="logo-image">
+                    <span class="logo-text">Women in Gaming</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aboutus.html" class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="manageCommunity.html" class="nav-link active">EMPOWER</a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">ANALYTICS</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-empower" style="background-image: linear-gradient(rgba(128, 0, 128, 0.8), rgba(128, 0, 128, 0.6)), url('img/mahdi-chaghari-RqO_02KT36w-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title hero-title-light">
+                    MANAGE<br>
+                    GAMING<br>
+                    COMMUNITY
+                </h1>
+                <p class="hero-subtitle hero-subtitle-light">
+                    Manage and celebrate notable women in the gaming industry
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRUD Management Section -->
+    <section class="crud-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">COMMUNITY MANAGEMENT</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <!-- CRUD Navigation -->
+            <div class="crud-nav">
+                <button class="crud-tab active" data-tab="add">ADD NEW</button>
+                <button class="crud-tab" data-tab="view">VIEW ALL</button>
+                <button class="crud-tab" data-tab="edit">EDIT</button>
+                <button class="crud-tab" data-tab="delete">DELETE</button>
+            </div>
+
+            <!-- Add New Form -->
+            <div class="crud-content active" id="add-content">
+                <div class="form-container">
+                    <h3 class="form-title">Add New Woman in Gaming</h3>
+                    <form id="add-form" class="crud-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role/Position</label>
+                            <input type="text" id="role" name="role" placeholder="e.g., Game Developer, CEO, Designer" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company/Studio</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notable-work">Notable Work</label>
+                            <input type="text" id="notable-work" name="notableWork" placeholder="e.g., Portal, Journey, Assassin's Creed" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="achievements">Key Achievements</label>
+                            <textarea id="achievements" name="achievements" rows="4" placeholder="Describe their major contributions to gaming..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="year-started">Year Started in Gaming</label>
+                            <input type="number" id="year-started" name="yearStarted" min="1970" max="2024">
+                        </div>
+                        <button type="submit" class="btn btn-primary">ADD TO COMMUNITY</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- View All Content -->
+            <div class="crud-content" id="view-content">
+                <div class="view-container">
+                    <h3 class="form-title">Notable Women in Gaming</h3>
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search by name, company, or role...">
+                        <button class="btn btn-secondary" onclick="searchEntries()">SEARCH</button>
+                    </div>
+                    <div class="entries-grid" id="entries-grid">
+                        <!-- Entries will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit Content -->
+            <div class="crud-content" id="edit-content">
+                <div class="form-container">
+                    <h3 class="form-title">Edit Entry</h3>
+                    <div class="select-entry">
+                        <label for="edit-select">Select Entry to Edit:</label>
+                        <select id="edit-select" onchange="loadEditForm()">
+                            <option value="">Choose an entry...</option>
+                        </select>
+                    </div>
+                    <form id="edit-form" class="crud-form" style="display: none;">
+                        <div class="form-group">
+                            <label for="edit-name">Full Name</label>
+                            <input type="text" id="edit-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-role">Role/Position</label>
+                            <input type="text" id="edit-role" name="role" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-company">Company/Studio</label>
+                            <input type="text" id="edit-company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-notable-work">Notable Work</label>
+                            <input type="text" id="edit-notable-work" name="notableWork" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-achievements">Key Achievements</label>
+                            <textarea id="edit-achievements" name="achievements" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-year-started">Year Started in Gaming</label>
+                            <input type="number" id="edit-year-started" name="yearStarted" min="1970" max="2024">
+                        </div>
+                        <button type="submit" class="btn btn-primary">UPDATE ENTRY</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delete Content -->
+            <div class="crud-content" id="delete-content">
+                <div class="form-container">
+                    <h3 class="form-title">Delete Entry</h3>
+                    <div class="select-entry">
+                        <label for="delete-select">Select Entry to Delete:</label>
+                        <select id="delete-select">
+                            <option value="">Choose an entry...</option>
+                        </select>
+                    </div>
+                    <div class="delete-preview" id="delete-preview" style="display: none;">
+                        <div class="preview-card">
+                            <h4 id="preview-name"></h4>
+                            <p id="preview-details"></p>
+                            <div class="delete-actions">
+                                <button class="btn btn-danger" onclick="confirmDelete()">CONFIRM DELETE</button>
+                                <button class="btn btn-secondary" onclick="cancelDelete()">CANCEL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Stats 
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">COMMUNITY STATS</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-entries">0</div>
+                    <div class="stat-label">Total Entries</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="developers-count">0</div>
+                    <div class="stat-label">Developers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="executives-count">0</div>
+                    <div class="stat-label">Executives</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="recent-additions">0</div>
+                    <div class="stat-label">Recent Additions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Women in Gaming</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="manageCommunity.html">Empower</a>
+                    <a href="analytics.html">Analytics</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Women in Games. Empowering change through inclusive gaming.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

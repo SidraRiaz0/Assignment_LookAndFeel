@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Women in Games</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo.jpg" alt="Women in Gaming Logo" class="logo-image">
+                    <span class="logo-text">Women in Gaming</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="aboutus.html" class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="manageCommunity.html" class="nav-link">EMPOWER</a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link active">ANALYTICS</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-analytics" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 102, 255, 0.8)), url('img/wig.jpeg'); background-size: cover; background-position: center;">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title hero-title-light">
+                    WOMEN IN<br>
+                    GAMING<br>
+                    ANALYTICS
+                </h1>
+                <p class="hero-subtitle">Data-driven insights into gender representation in gaming</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="key-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">46%</div>
+                    <div class="stat-label">of gamers are women</div>
+                    <div class="stat-source">Bryter 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">23%</div>
+                    <div class="stat-label">of game developers are women</div>
+                    <div class="stat-source">GDC 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">44%</div>
+                    <div class="stat-label">play games with partners</div>
+                    <div class="stat-source">Bryter Research 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">59%</div>
+                    <div class="stat-label">experience online toxicity</div>
+                    <div class="stat-source">Women in Games 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">DATA VISUALIZATIONS</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <!-- Chart Grid -->
+            <div class="charts-grid">
+                <!-- Gaming Population Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Gaming Population by Gender</h3>
+                        <p class="chart-source">Source: ESA 2024 Essential Facts Report</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="genderChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Industry Workforce Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Gaming Industry Workforce</h3>
+                        <p class="chart-source">Source: GDC State of Industry Report 2024</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="workforceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Regional Representation Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Female Developers by Region</h3>
+                        <p class="chart-source">Source: Global Gaming Industry Survey 2024</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="regionalChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Harassment Types Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Types of Harassment Experienced</h3>
+                        <p class="chart-source">Source: Women in Games / Bryter Research 2024</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="harassmentChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Career Progression Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Women in Gaming Leadership</h3>
+                        <p class="chart-source">Source: Gaming Industry Leadership Survey 2024</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="leadershipChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Trends Over Time Chart -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h3>Women in Gaming Industry (2020-2024)</h3>
+                        <p class="chart-source">Source: GDC Annual Reports</p>
+                    </div>
+                    <div class="chart-wrapper">
+                        <canvas id="trendsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section class="insights-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">KEY INSIGHTS</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-icon representation"></div>
+                    <h4>Representation Gap</h4>
+                    <p>Despite women making up 46% of all gamers, they represent only 25% of the gaming industry workforce, highlighting a significant representation gap in game development and industry leadership roles.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon harassment"></div>
+                    <h4>Harassment Crisis</h4>
+                    <p>59% of women experience some form of toxicity while gaming, with 42% receiving verbal abuse and 30% experiencing sexual harassment. This creates a hostile environment that drives women away from gaming communities.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon leadership"></div>
+                    <h4>Leadership Underrepresentation</h4>
+                    <p>Women hold only 16% of executive positions in gaming companies, despite their significant presence as consumers and growing representation in development roles.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon progress"></div>
+                    <h4>Positive Trends</h4>
+                    <p>There has been a gradual increase in women's representation in the gaming workforce from 22% in 2020 to 25% in 2024, showing slow but meaningful progress toward gender equality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommendations Section -->
+    <section class="recommendations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">RECOMMENDATIONS</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="recommendations-content">
+                <div class="recommendation-item">
+                    <h4>1. Strengthen Anti-Harassment Policies</h4>
+                    <p>Gaming platforms and companies should implement stronger reporting systems, faster response times, and more severe consequences for harassment to create safer gaming environments.</p>
+                </div>
+                <div class="recommendation-item">
+                    <h4>2. Increase Industry Representation</h4>
+                    <p>Gaming companies should actively recruit and promote women in leadership roles, create mentorship programs, and address workplace culture issues that may discourage women from pursuing gaming careers.</p>
+                </div>
+                <div class="recommendation-item">
+                    <h4>3. Community Education</h4>
+                    <p>Implement educational initiatives to raise awareness about the impact of harassment and promote inclusive gaming culture among all players.</p>
+                </div>
+                <div class="recommendation-item">
+                    <h4>4. Support Networks</h4>
+                    <p>Create and fund organizations that support women in gaming, provide safe spaces for networking, and offer resources for career development in the gaming industry.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">Women in Gaming</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="aboutus.html">About Us</a>
+                    <a href="manageCommunity.html">Empower</a>
+                    <a href="analytics.html">Analytics</a>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Women in Games. Empowering change through inclusive gaming.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
